@@ -5,25 +5,21 @@ const fish = (shoal: String): Number => {
     return 1;
   }
 
-  const test = loopMonch(Array.from(shoal));
-
-  return test;
-};
-
-const loopMonch = (fishArray: string[]): number => {
   let currentSize = 1;
   let tummyQuantity = 0;
 
-  fishArray.sort().forEach((fish) => {
-    if (parseInt(fish) <= currentSize) {
-      tummyQuantity += parseInt(fish);
+  Array.from(shoal)
+    .sort()
+    .forEach((fish) => {
+      if (parseInt(fish) <= currentSize) {
+        tummyQuantity += parseInt(fish);
 
-      if (tummyQuantity >= currentSize * 4) {
-        tummyQuantity -= currentSize * 4;
-        currentSize++;
+        if (tummyQuantity >= currentSize * 4) {
+          tummyQuantity -= currentSize * 4;
+          currentSize++;
+        }
       }
-    }
-  });
+    });
 
   return currentSize;
 };
